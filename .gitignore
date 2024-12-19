@@ -1,0 +1,23 @@
+#secrets.txt
+secrets.txt
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+npm-debug.log
+yarn-error.log
+
+# Ignore environment variable file
+.env
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore IDE configurations
+.vscode/
+.idea/

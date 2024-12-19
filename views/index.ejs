@@ -1,0 +1,29 @@
+<h1>Write Blog</h1>
+<form action="/submit" method="POST">
+    <input name="post_title" type="text" class="feedback-input" placeholder="Title"/><br>
+    <textarea name="text" rows="10" cols="50" class="feedback-input" placeholder="Text"></textarea><br>
+    <input type="submit" value="SUBMIT" />
+  </form>
+  <hr>
+
+<% if (posts && posts.length > 0) { %>
+  <% for (let i = 0; i < posts.length; i++) { %>
+    <div>
+      <h3><%= posts[i].title %></h3>
+      <p><%= posts[i].text %></p>
+      <!-- Edit Button -->
+      <form action="/edit/<%= posts[i].id %>" method="GET" style="display:inline;">
+        <button type="submit">Edit</button>
+      </form>
+
+      <!-- Delete Button -->
+      <form action="/delete" method="POST" style="display:inline;">
+        <!-- Hidden field to pass the post ID to the server -->
+        <input type="hidden" name="id" value="<%= posts[i].id %>">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  <% } %>
+<% } else { %>
+  <p>No posts yet. Create your first post!</p>
+<% } %>
